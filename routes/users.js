@@ -2,6 +2,55 @@ var express = require('express');
 var router = express.Router();
 const db = require("../model/helper");
 
+//EMERGENCY
+/* GET LOGS  */
+router.get('/emergency', function(req, res, next) {
+  db("SELECT * FROM emergency;")
+  .then(results => {
+    res.send(results.data);
+  })
+  .catch(err => res.status(500).send(err));
+  
+});
+
+// GET LOGS BY ID
+router.get("/emergency/:id", function(req, res, next) {
+  db(`SELECT * FROM emergency WHERE id=${req.params.id};`)
+    .then(results => {
+      res.send(results.data);
+    })
+    .catch(err => res.status(500).send(err));
+});
+
+// INSERT a new log
+router.post("/emergency", function(req, res, next) {
+  db(
+    `INSERT INTO emergency (felling, because) VALUES ('${req.body.felling}', '${req.body.because}')`
+  )
+    .then(results => {
+      res.send({ message: "ok" });
+    })
+    .catch(err => res.status(500).send(err));
+});
+
+// DELETE a log from the DB -- 
+router.delete("/emergency/:id", function(req, res, next) {
+  db(`DELETE FROM emergency WHERE id=${req.params.id};`)
+    .then(results => {
+      const payload = { message: "ok" };
+      res.send(payload);
+    })
+    .catch(err => res.status(500).send(err));
+});
+
+//
+///////
+////////////
+///////////////////
+///////////////////////////
+
+
+
 /* GET users KIDS listing. -- ok */
 router.get('/kid', function(req, res, next) {
   db("SELECT * FROM kid;")
