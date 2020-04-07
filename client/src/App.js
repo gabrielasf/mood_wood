@@ -1,5 +1,6 @@
 import React from "react";
 import Register from "./components/Register";
+import History from "./components/History";
 import Logs from "./components/Logs";
 import {
   BrowserRouter as Router,
@@ -7,8 +8,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
-
 
 
 export default function App() {
@@ -62,15 +61,15 @@ function Home() {
   );
 }
 
-function History() {
+// function History() {
 
-  return (
-  <div>
-    <h1>History</h1>
-     </div>
+//   return (
+//   <div>
+//     <h1>History</h1>
+//      </div>
    
-  );
-}
+//   );
+// }
 
 // function Register() {
 //   return (

@@ -10,7 +10,9 @@ class Register extends Component {
           firstname:"",
           lastname: "",
           email: "",
-          username: ""
+          username: "",
+          email2: "",
+          id:"",
            }
          }
          componentDidMount() {
@@ -46,7 +48,9 @@ class Register extends Component {
               lastname: this.state.lastname,
               email: this.state.email,
               username: this.state.username,
-              dateofbirth : this.state.dateofbirth
+              dateofbirth : this.state.dateofbirth,
+              email2: this.state.email2,
+              id: this.state.id
             })
           })
             .then(res => res.json())
@@ -61,6 +65,21 @@ class Register extends Component {
             }); 
         };
       
+        deleteUser = id => {
+          fetch(`/users/parent/${id}`, {
+            method: "DELETE"
+          })
+            .then(res => res.json())
+            .then(response => {
+              if (response.message === "Error") {
+                return console.error("error");
+              }
+              this.getLog();
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        };
         
 
 
@@ -94,8 +113,41 @@ render(){
   <div>
   <button type="button" class="btn btn-outline-dark" onClick={e => this.newUser()}>Submit</button>
   </div>
-  
+  <div>
+    <br></br>
+    <br></br>
+    <h5>No longer want to share your feelings?</h5>
+    <p className="h6">We're sorry to see you go, but you can delete your account filling the form below.</p>
+  <form>
+  <div className="form-row align-items-center">
+    <div className="col-sm-3 my-1">
+      <label className="sr-only" for="inlineFormInputName">Name</label>
+      <input type="text" class="form-control" id="inlineFormInputName" name="id" onChange={this.inputText} placeholder="Account ID"/>
     </div>
+    <div className="col-sm-3 my-1">
+      <label className="sr-only" for="inlineFormInputGroupUsername">Your account ID</label>
+      <div className="input-group">
+        <div className="input-group-prepend">
+          <div className="input-group-text">@</div>
+        </div>
+        <input type="text" className="form-control" id="inlineFormInputGroupUsername" name="email2" onChange={this.inputText} placeholder="E-mail"/>
+      </div>
+    </div>
+    <div className="col-auto my-1">
+      <div className="form-check">
+        <div>
+         
+        </div>
+      </div>
+    </div>
+    <div className="col-auto my-1">
+      <button type="submit" className="btn btn-primary" onClick={e =>this.deleteUser(this.state.id)}>Delete account</button>
+    </div>
+  </div>
+</form>
+  </div>
+  </div>
+  
     );
     }
   }

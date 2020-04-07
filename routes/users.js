@@ -33,12 +33,22 @@ router.post("/emergency", function(req, res, next) {
     .catch(err => res.status(500).send(err));
 });
 
-// DELETE a log from the DB -- 
-router.delete("/emergency/:id", function(req, res, next) {
-  db(`DELETE FROM emergency WHERE id=${req.params.id};`)
+// DELETE PARENT from the DB -- 
+router.delete("/parent/:id", function(req, res, next) {
+  db(`DELETE FROM parent WHERE id=${req.params.id};`)
     .then(results => {
       const payload = { message: "ok" };
       res.send(payload);
+    })
+    .catch(err => res.status(500).send(err));
+});
+
+
+// GET parents BY ID
+router.get("/parent/:id", function(req, res, next) {
+  db(`SELECT * FROM parent WHERE id=${req.params.id};`)
+    .then(results => {
+      res.send(results.data);
     })
     .catch(err => res.status(500).send(err));
 });
@@ -152,15 +162,6 @@ router.post("/moodIcon", function(req, res, next) {
 }); 
 
 
-// DELETE a parent from the DB -- 
-router.delete("/parent/:id", function(req, res, next) {
-  db(`DELETE FROM parent WHERE id=${req.params.id};`)
-    .then(results => {
-      const payload = { message: "ok" };
-      res.send(payload);
-    })
-    .catch(err => res.status(500).send(err));
-});
 
 // DELETE a kid from the DB -- 
 router.delete("/kid/:id", function(req, res, next) {
@@ -184,5 +185,4 @@ router.delete("/log/:id", function(req, res, next) {
 });
 
 module.exports = router;
-
 
