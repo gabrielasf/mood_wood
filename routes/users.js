@@ -25,7 +25,7 @@ router.get("/emergency/:id", function(req, res, next) {
 // INSERT a new log
 router.post("/emergency", function(req, res, next) {
   db(
-    `INSERT INTO emergency (felling, because) VALUES ('${req.body.felling}', '${req.body.because}')`
+    `INSERT INTO emergency (feeling, because) VALUES ('${req.body.feeling}', '${req.body.because}')`
   )
     .then(results => {
       res.send({ message: "ok" });
@@ -108,8 +108,8 @@ router.get("/log/:id", function(req, res, next) {
 
 // INSERT NEW PARENT DATA -- ok
 router.post("/parent", function(req, res, next) {
-  db(`INSERT INTO parent (firstname, lastname, email, username, dateofbirth) 
-      VALUES ('${req.body.firstname}','${req.body.lastname}', '${req.body.email}', '${req.body.username}', '${req.body.dateofbirth}' )`
+  db(`INSERT INTO parent (firstname, lastname, email, username) 
+      VALUES ('${req.body.firstname}','${req.body.lastname}', '${req.body.email}', '${req.body.username}')`
    )
   .then(results => {
     res.send({ message: "ok" });
