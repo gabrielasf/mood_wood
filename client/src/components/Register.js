@@ -1,5 +1,6 @@
 
 import React, { Component } from "react";
+import Popup from "reactjs-popup";
 
 
 class Register extends Component {

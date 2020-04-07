@@ -53,6 +53,16 @@ router.get("/parent/:id", function(req, res, next) {
     .catch(err => res.status(500).send(err));
 });
 
+// DELETE a log from the DB -- 
+router.delete("/emergency/:id", function(req, res, next) {
+  db(`DELETE FROM emergency WHERE id=${req.params.id};`)
+    .then(results => {
+      const payload = { message: "ok" };
+      res.send(payload);
+    })
+    .catch(err => res.status(500).send(err));
+});
+
 //
 ///////
 ////////////
@@ -174,15 +184,7 @@ router.delete("/kid/:id", function(req, res, next) {
 });
 
 
-// DELETE a log from the DB -- 
-router.delete("/log/:id", function(req, res, next) {
-  db(`DELETE FROM log WHERE id=${req.params.id};`)
-    .then(results => {
-      const payload = { message: "ok" };
-      res.send(payload);
-    })
-    .catch(err => res.status(500).send(err));
-});
+
 
 module.exports = router;
 

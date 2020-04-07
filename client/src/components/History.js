@@ -21,6 +21,22 @@ class History extends Component {
               this.setState({  logs : response });
             });
         };
+
+        deleteLog = i => {
+            fetch(`/users/emergency/${i}`, {
+              method: "DELETE"
+            })
+              .then(res => res.json())
+              .then(response => {
+                if (response.message === "Error") {
+                  return console.error("error");
+                }
+                this.getLog();
+              })
+              .catch(error => {
+                console.log(error);
+              });
+          };
   
 
     render() {
@@ -33,6 +49,13 @@ class History extends Component {
           <div key={index}> 
          <div>
           I'm feeling {log.feeling + " "} because {" " + log.because}
+          
+          <button
+            className="btn btn-outline-info btn-sm m-2"
+            onClick={() => this.deleteLog(log.id)}>
+            Delete
+            </button>
+          
           </div>
           </div>
             
