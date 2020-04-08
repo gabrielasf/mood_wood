@@ -137,19 +137,20 @@ VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=formula
 
 ![Image db schema](public/images/db_schema.png)
 
+### API routes plan
+
+![Image api routes plan](public/images/api_routes.png)
  
 
 ## User Flow Diagram
 
-This was the first idea. The project in this file looks different and the flow for sure will continue to evolve. 
+This was the first user flow idea and could be usefull to contemplate one of the ways in which this project could be developped. The project in this repository looks different and the flow for sure will continue to evolve. 
 
+![Image user flow](public/images/userflowmw.png)
 
+## Full stack architecture schema
 
-
-
-
-
-
+![Full stack arch schema](public/images/arch.png)
 
 ### Technologies
 
@@ -161,10 +162,12 @@ This was the first idea. The project in this file looks different and the flow f
 
 ### Future features
 
-
+* make it kids friendly
+* use buttons with feelings instead of a form to create a new log
+* be able to retrieve the submitted data using, for example, the felling category
+* it would be amazing to get this info back in a graph form :)
 
 
 #### Credit
-
 _This is a student project that was created at [CodeOp](http://CodeOp.tech), a full stack development bootcamp in Barcelona._
 
