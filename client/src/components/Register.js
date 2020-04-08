@@ -86,39 +86,41 @@ class Register extends Component {
 
 render(){
     return (
+    <div className="container" id="inputgr">
+    <h2>Sign up!</h2>  
+    <p>Join our community and get to know <strong>YOURSELF</strong> while understanding <strong>YOUR</strong> emotions!</p>
     <div>
-    <h2>Sign up</h2>  
-  
-    <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="">First and last name</span>
+    <div className="input-group">
+    <div className="input-group-prepend">
+      <span className="input-group-text" id="">First and last name</span>
     </div>
-    <input type="text" class="form-control" onChange={this.inputText} name="firstname"/>
-    <input type="text" class="form-control" onChange={this.inputText} name="lastname"/>
+    <input type="text" className="form-control" onChange={this.inputText} name="firstname"/>
+    <input type="text" className="form-control" onChange={this.inputText} name="lastname"/>
   </div>
     
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">your@email.com</span>
+  <div className="input-group mb-3">
+    <div className="input-group-prepend">
+      <span className="input-group-text" id="basic-addon1">your@email.com</span>
     </div>
-    <input type="text" class="form-control"  aria-label="email" aria-describedby="basic-addon1" onChange={this.inputText} name="email"/>
+    <input type="text" className="form-control"  aria-label="email" aria-describedby="basic-addon1" onChange={this.inputText} name="email"/>
   </div>
   
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default">UserName</span>
+  <div className="input-group mb-3">
+    <div className="input-group-prepend">
+      <span className="input-group-text" id="inputGroup-sizing-default">UserName</span>
     </div>
-    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" onChange={this.inputText} name="username"/>
+    <input type="text" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" onChange={this.inputText} name="username"/>
   </div>
   
   <div>
-  <button type="button" class="btn btn-outline-dark" onClick={e => this.newUser()}>Submit</button>
+  <button type="button" className="btn btn-dark" onClick={e => this.newUser()}>Submit</button>
+  </div>
   </div>
   <div>
     <br></br>
     <br></br>
-    <h5>No longer want to share your feelings?</h5>
-    <p className="h6">We're sorry to see you go, but you can delete your account filling the form below.</p>
+    <h5 className="font-weight-light">No longer want to share your feelings?</h5>
+    <p className="h6 font-weight-lighter">We're sorry to see you go, but you can delete your account filling the form below.</p>
   <form>
   <div className="form-row align-items-center">
     <div className="col-sm-3 my-1">
@@ -136,17 +138,16 @@ render(){
     </div>
     <div className="col-auto my-1">
       <div className="form-check">
-        <div>
-         
-        </div>
       </div>
     </div>
-    <div className="col-auto my-1">
-      <button type="submit" className="btn btn-primary" onClick={e =>this.deleteUser(this.state.id)}>Delete account</button>
+    </div>
+</form>
+<div>
+    <button type="submit" className="btn btn-outline-danger mt-2" onClick={e =>this.deleteUser(this.state.id)}>Delete account</button>
     </div>
   </div>
-</form>
-  </div>
+  <br/>
+  <img src="/images/faces3.png" alt="postit" className="mx-auto" id="imgsignup" />
   </div>
   
     );

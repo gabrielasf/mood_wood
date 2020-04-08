@@ -2,7 +2,7 @@ import React from "react";
 import Register from "./components/Register";
 import History from "./components/History";
 import Logs from "./components/Logs";
-
+import "./App.css";
 
 import {
   BrowserRouter as Router,
@@ -16,18 +16,23 @@ export default function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarText"></div>
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <Link to="/" className="nav-link">Home</Link>
             </li>
-            <li>
-              <Link to="/register">Sign up!</Link>
+            <li className="nav-item">
+              <Link to="/register" className="nav-link">Sign up!</Link>
             </li>
-            <li>
-              <Link to="/logs">Create a Log</Link>
+            <li className="nav-item">
+              <Link to="/logs" className="nav-link">Create a Log</Link>
             </li>
           </ul>
+          
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and
@@ -55,11 +60,15 @@ export default function App() {
 function Home() {
 
   return (
-  <div>
-    <img src="https://media.giphy.com/media/BqJc5y7Oq6wPS/giphy.gif" class="rounded mx-auto d-block" alt="logo"/>
-    <h1 className="display-4 text-center">How are you felling today?</h1>
+    <div>
+  <div id="imgdiv">
+    <img src="https://media.giphy.com/media/BqJc5y7Oq6wPS/giphy.gif" className="p-3 m-3 rounded mx-auto d-block" alt="logo"/>
+    <h1 id="hry" className="display-3 text-center">How are you felling today?</h1>
     </div>
-   
+    <div>
+    <h1 className="display-4 text-center font-weight-light">All your emotions are welcome here.</h1>
+    </div>
+    </div>
   );
 }
 

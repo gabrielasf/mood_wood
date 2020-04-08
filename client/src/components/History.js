@@ -42,30 +42,28 @@ class History extends Component {
     render() {
       return ( 
         <div> 
-        <h2>History</h2>
+        <img src="/images/scale.png" className="img-fluid mw-100 mx-auto d-block"/>
+        
+        <h1 className="font-weight-light display-3 text-left pl-5">Emotions Log</h1>
         <div>
-  
+          <ul className="list-group list-group-flush">
           {this.state.logs.map((log, index) => ( 
-          <div key={index}> 
+          <li key={index} className="list-group-item">
+          <div>
          <div>
-          I'm feeling {log.feeling + " "} because {" " + log.because}
-          
-          <button
-            className="btn btn-outline-info btn-sm m-2"
+          I'm feeling <strong>{log.feeling + " "}</strong> because {" " + log.because}
+            <button
+            className="btn btn-outline-warning btn-sm m-2"
             onClick={() => this.deleteLog(log.id)}>
             Delete
             </button>
-          
-          </div>
-          </div>
-            
-            ))}
-  
-            
-            
-        </div>
-        
+         </div>
       </div>
+   </li>
+    ))}
+  </ul> 
+  </div>
+    </div>
         );  
     }
   }

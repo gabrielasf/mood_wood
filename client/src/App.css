@@ -1,34 +1,28 @@
-.row {
-    display: flex;
-    flex-wrap: wrap;
-   
-  }
-  
-  /* Create four equal columns that sits next to each other */
-  .col {
-    flex: 25%;
-    max-width: 25%;
-    
-  }
-  
-  .col img {
-    margin-top: 2px;
-    vertical-align: middle;
-    width: 40%;
-  }
-  
-  /* Responsive layout - makes a two column-layout instead of four columns */
-  @media screen and (max-width: 200px) {
-    .col {
-      flex: 40%;
-      max-width: 40%;
-    }
-  }
-  
-  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 150px) {
-    .col {
-      flex: 100%;
-      max-width: 100%;
-    }
-  }
+#imgdiv {
+
+  background-color: black;
+}
+
+#hry{
+
+  color: ghostwhite;
+  font-weight: lighter;
+}
+
+#divInputGr {
+
+  background-color: black;
+
+}
+
+ul {
+  text-align: left;
+}
+
+#imgsignup {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+

@@ -67,8 +67,9 @@ class Logs extends Component {
 
   render() {
     return (
-    <div>
-    <h2>Your Logs</h2>
+    <div className="container">
+    <h2>Your Log</h2>
+    <p>Open your heart, observe your thoughts and write down your feelings!</p>
     <div>
         <div className="input-group mb-3">
         <div className="input-group-prepend">
@@ -94,16 +95,18 @@ class Logs extends Component {
       </div>
       </div>
       <div>
-        <button type="button" className="btn btn-outline-dark m-2" onClick={e => this.newLog()} >Submit this Feeling</button>
+        <button type="button" className="btn btn-dark mt-2" onClick={e => this.newLog()} >Submit this Feeling</button>
       </div>
+      <br/>
+      
       <div>
-          <ul>
-            <li>
-            <Link to="/logs/history"> See all your logs</Link>
-            </li>
-      </ul>
+          <li className="btn float-left pl-0">
+          <Link to="/logs/history" className="btn btn-outline-secondary text-left pl-2"> See all your logs</Link>
+          </li>
       </div>
-
+       <div>
+         <img src ="/images/moodmugscrop.png" alt="moodmugs" className="float-right" />
+       </div>
     </div>
       
     );
