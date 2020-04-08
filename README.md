@@ -109,9 +109,12 @@ Install a MySQL extension in your source-code editor.
 This will give you access to MySQL directly from your editor where you can see 5 new different tables: in your database: emergency, moodicon, parent, kid and log. 
 
 Your database should look like this:
-(public/images/ moodwood_db.png)
+
+
+![Image db MySQL](public/images/moodwood_db.png)
 
 >The editor used in this project was Visual Studio Code:
+
 Version: 1.41.0
 Commit: 9579eda04fdb3a9bba2750f15193e5fafe16b959
 Date: 2019-12-11T17:58:38.338Z
@@ -122,6 +125,7 @@ V8: 7.6.303.31-electron.0
 OS: Darwin x64 18.7.0
 
 >MySQL extension used:
+
 Name: MySQL
 Id: formulahendry.vscode-mysql
 Description: MySQL management tool
@@ -131,7 +135,8 @@ VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=formula
 
 ### Database schema
 
-(public/images/db_schema.png)
+![Image db schema](public/images/db_schema.png)
+
  
 
 ## User Flow Diagram
