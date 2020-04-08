@@ -9,16 +9,16 @@ At this stage some minimal features were implemented only. Implementing new feat
 
 ### Dependencies
 
-* Run yarn in project root folder to install express. yarn start to run servers on port 5000.
-* cd client folder 
-* run yarn to install React. 
-* yarn start to run servers on port 3000.
+* Run `yarn` in project root folder to install express. `yarn start` to run servers on port 5000.
+* In the root folder, `cd client`. 
+* run `yarn` to install React. 
+* `yarn start` to run servers on port 3000.
 
 
 ### Database
-Access MySQL in your terminal by running mysql -u root -p.
-Create new database called mood_wood: type create database moodwood.
-In MySQL, type use moodwood
+Access MySQL in your terminal by running `mysql -u root -p`.
+Create new database called moodwood: `create database moodwood`.
+In MySQL, use `moodwood`
 Copy and paste de data below (ONE TABLE EACH TIME):
 > Apologies in advance for this mess and extra work you have to do! :see_no_evil:
 > This is for your patience : :bouquet:
@@ -104,7 +104,7 @@ create table log
             on update cascade on delete cascade
 );
 
-Add a .env file to root folder containing the MySQL authentication information for MySQL user.
+Add a `.env` file to root folder containing the MySQL authentication information for MySQL user.
 Install a MySQL extension in your source-code editor.
 This will give you access to MySQL directly from your editor where you can see 5 new different tables: in your database: emergency, moodicon, parent, kid and log. 
 
