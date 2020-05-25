@@ -87,6 +87,66 @@ class Register extends Component {
 render(){
     return (
     <div className="container" id="inputgr">
+    <div className="container login-container">
+            <div className="row">
+                <div className="col-md-6 login-form-1">
+                   <img src="images/logingreen.png" alt="login" className="mx-auto d-block"/>
+                        <form>
+                        <div className="form-group yellow">
+                            <input type="text" className="form-control" placeholder="Registered Email" value="" />
+                        </div>
+                        <div className="form-group">
+                            <input type="password" className="form-control" placeholder="Password" value="" />
+                        </div>
+                        <div className="form-group">
+                            <input type="submit" className="btnSubmit" value="Login" />
+                        </div>
+                        <div className="form-group">
+                            <a href="#" className="ForgetPwd">Forget Password?</a>
+                        </div>
+                    </form>
+                </div>
+                <div className="col-md-6 login-form-2">
+                  <img src="images/signup.png" alt="login" className="mx-auto d-block"/>
+                    <form>
+                        <div className="form-group">
+                            <input type="text" className="form-control" placeholder="Parent's First Name" value="" />
+                        </div>
+                        <div className="form-group">
+                            <input type="text" className="form-control" placeholder="Parent's Last Name" value="" />
+                        </div>
+                        <div className="form-group">
+                            <input type="text" className="form-control" placeholder="Parent's Email" value="" />
+                        </div>
+                        <div className="form-group">
+                            <input type="text" className="form-control" placeholder="Kid's name" value="" />
+                        </div>
+                        <div className="form-group">
+                            <input type="password" className="form-control" placeholder="Account's Password" value="" />
+                        </div>
+                        <div className="form-group">
+                            <input type="submit" className="btnSubmit" value="Sign up" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    
+    
+    
+    
+    
+     
+    
+    <div className="input-group">
+    <div className="input-group-prepend">
+      <span className="input-group-text" id="">First and last name</span>
+    </div>
+    <input type="text" className="form-control" onChange={this.inputText} name="firstname"/>
+    <input type="text" className="form-control" onChange={this.inputText} name="lastname"/>
+  </div>
+
     <h2>Sign up!</h2>  
     <p>Join our community and get to know <strong>YOURSELF</strong> while understanding <strong>YOUR</strong> emotions!</p>
     <div>
