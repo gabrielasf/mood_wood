@@ -2,6 +2,7 @@ import React from "react";
 import Register from "./components/Register";
 import History from "./components/History";
 import Logs from "./components/Logs";
+import About from "./components/About";
 import "./App.css";
 
 import {
@@ -32,6 +33,9 @@ export default function App() {
             <li className="nav-item">
               <Link to="/logs" className="nav-link">Create a Log</Link>
             </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link">About</Link>
+            </li>
           </ul>
           
         </nav>
@@ -43,10 +47,13 @@ export default function App() {
             <Register />
           </Route>
            <Route path="/logs/history" component={History}>
-            <History  />
+            <History/>
           </Route>
           <Route path="/logs" component={Logs}>
             <Logs  />
+          </Route>
+          <Route path="/about" component={About}>
+            <About  />
           </Route>
           <Route path="/" component={Home}>
             <Home />
