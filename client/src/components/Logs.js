@@ -67,49 +67,71 @@ class Logs extends Component {
 
   render() {
     return (
-    <div className="container">
-    <h2>Your Log</h2>
-    <p>Open your heart, observe your thoughts and write down your feelings!</p>
-    <div>
-        <div className="input-group mb-3">
-        <div className="input-group-prepend">
-        <label className="input-group-text" for="inputGroupSelect01">I'm feeling...</label>
+
+      <div class="container">
+        <div class="card border-0 shadow my-5">
+          <div class="card-body p-5">
+            <div className="container">
+                <h1 className="display-6 font-weight-lighter text-center">Considering the chart below, connect with your feelings!</h1>
+                <div><img src="/images/howareyou.png" className="mx-auto d-block"/></div>
+                <img src="/images/angry.png" className="p-1 m-1"/>
+                <img src="/images/annoyed.png" className="p-1 m-1"/>
+                <img src="/images/confused.png" className="p-1 m-1"/>
+                <img src="/images/good.png" className="p-1 m-1"/>
+                <img src="/images/happy.png" className="p-1 m-1"/>
+                <img src="/images/proud.png" className="p-1 m-1"/>
+                <img src="/images/sad.png" className="p-1 m-1"/>
+                <img src="/images/scared.png" className="p-1 m-1"/>
+                <img src="/images/silly.png" className="p-1 m-1"/>
+                <img src="/images/shy.png" className="p-1 m-1"/>
+                <img src="/images/tired.png" className="p-1 m-1"/>
+                <img src="/images/worried.png" className="p-1 m-1"/>
+              
+                
+                <div>
+                <div className="input-group mb-3">
+                  <div className="input-group-prepend">
+                    <label className="input-group-text" for="inputGroupSelect01">I'm feeling...</label>
+                  </div>
+                  <select className="custom-select" id="inputSelect" onChange={this.inputText} name="feeling">
+                    <option selected>Choose...</option>
+                    <option value="Annoyed">Annoyed</option>
+                    <option value="Angry">Angry</option>
+                    <option value="Confused">Confused</option>
+                    <option value="Good">Good </option>
+                    <option value="Happy">Happy </option>
+                    <option value="Proud">Proud  </option>
+                    <option value="Sad">Sad </option>
+                    <option value="Scared">Scared</option>
+                    <option value="Silly">Silly</option>
+                    <option value="Shy">Shy</option>
+                    <option value="Tired">Tired </option>
+                    <option value="Worried">Worried</option>
+                  </select>
+                </div>
+                <div className="input-group">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">Because</span>
+                  </div>
+                    <textarea className="form-control" aria-label="With textarea" onChange={this.inputText} name="because"></textarea>
+                  </div>
+                </div>
+                <div>
+                  <button type="button" className="btn btn-dark mt-2" onClick={e => this.newLog()} >Submit this Feeling</button>
+                </div>
+                <br/>
+                 <div>
+                    <li className="btn float-left pl-0">
+                    <Link to="/logs/history" className="btn btn-outline-secondary text-left pl-2"> See all your logs</Link>
+                    </li>
+                </div>
+            </div>
+        </div>
       </div>
-      <select className="custom-select" id="inputSelect" onChange={this.inputText} name="feeling">
-      <option selected>Choose...</option>
-      <option value="Angry">Angry</option>
-      <option value="Confused">Confused</option>
-      <option value="Good">Good </option>
-      <option value="Happy">Happy </option>
-      <option value="Proud">Proud  </option>
-      <option value="Sad">Sad </option>
-      <option value="Shy">Shy </option>
-      <option value="Tired">Tired </option>
-      </select>
-      </div>
-      <div className="input-group">
-      <div className="input-group-prepend">
-        <span className="input-group-text">Because</span>
-      </div>
-        <textarea className="form-control" aria-label="With textarea" onChange={this.inputText} name="because"></textarea>
-      </div>
-      </div>
-      <div>
-        <button type="button" className="btn btn-dark mt-2" onClick={e => this.newLog()} >Submit this Feeling</button>
-      </div>
-      <br/>
-      
-      <div>
-          <li className="btn float-left pl-0">
-          <Link to="/logs/history" className="btn btn-outline-secondary text-left pl-2"> See all your logs</Link>
-          </li>
-      </div>
-       <div>
-         <img src ="/images/moodmugscrop.png" alt="moodmugs" className="float-right" />
-       </div>
     </div>
-      
+
     );
   }
 }
 export default Logs;
+

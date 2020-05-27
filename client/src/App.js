@@ -2,6 +2,7 @@ import React from "react";
 import Register from "./components/Register";
 import History from "./components/History";
 import Logs from "./components/Logs";
+import Home from "./components/Home";
 import About from "./components/About";
 import "./App.css";
 
@@ -39,9 +40,7 @@ export default function App() {
           </ul>
           
         </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+        
         <Switch>
           <Route path="/register" component={Register}>
             <Register />
@@ -65,25 +64,6 @@ export default function App() {
 
 };
 
-function Home() {
 
-  return (
-    <div className="container">
-  <div className="card border-0 shadow my-3">
-    <div className="card-body p-3" id="contHome">
-    <div>
-    <img src="https://media.giphy.com/media/3ov9jEp7AkzKJf462Y/giphy.gif" className="p-3 m-2 rounded mx-auto float-left" id="gif" alt="logo"/>
-    </div>
-    <img src="images/how1.png" alt="how" className="float-right-align p-1 mb-1 mt-3"/>
-    <img src="images/areyou.png" alt="areyou" className="mb-1 p-1"/>
-    <img src="images/feeling.png" alt="feeling" className="mb-1 p-1"/>
-    
-    </div> 
-    </div>
-    </div>
-  
-
-  );
-}
 
     
