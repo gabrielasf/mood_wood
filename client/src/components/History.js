@@ -6,21 +6,32 @@ class History extends Component {
         super(props);
         this.state = {
         marked: false,
-        logs: []
+        logs: [],
+        kidname: null
         }    
     }
 
          componentDidMount() {
           this.getLog();
         }
-      
+        
         getLog = () => {
-          fetch(`/users/emergency`)
+          fetch(`/users/idlog/${this.props.currentUserId}`)
             .then(response => response.json())
             .then(response => {
               this.setState({  logs : response });
             });
         };
+
+        // getKid = () => {
+        //   fetch(`/users/kidparent/${this.props.currentUserId}`)
+        //     .then(response => response.json())
+        //     .then(response => {
+        //       console.log(response);
+        //       this.setState({  kidname : response });
+        //     });
+        // };
+
 
         deleteLog = i => {
             fetch(`/users/emergency/${i}`, {
@@ -42,45 +53,37 @@ class History extends Component {
     render() {
       return ( 
         <div> 
-
-
-<div class="container">
-  <div class="card border-0 shadow my-5">
-    <div class="card-body p-5">
-     
-    <img src="/images/scale.png" className="img-fluid mw-100 mx-auto d-block"/>
-        
-        <h1 className="font-weight-light display-3 text-left pl-5">Emotions Log</h1>
-        <div>
-          <ul className="list-group list-group-flush">
-          {this.state.logs.map((log, index) => ( 
-          <li key={index} className="list-group-item">
-          <div>
-         <div>
-          I'm feeling <strong>{log.feeling + " "}</strong> because {" " + log.because}
-            <button
-            className="btn btn-outline-warning btn-sm m-2"
-            onClick={() => this.deleteLog(log.id)}>
-            Delete
-            </button>
-         </div>
-      </div>
-   </li>
-    ))}
-  </ul> 
-  </div>
-
-     
-      <h1 class="font-weight-light">Fixed Full Page Background Image</h1>
-      <p class="lead">In this snippet, the background image is fixed to the body element. Content on the page will scroll, but the image will remain in a fixed position!</p>
-      <p class="lead">Scroll down...</p>
-      
-      <p class="lead mb-0">You've reached the end!</p>
+            <div class="container">
+              <div class="card border-0 shadow my-5">
+                <div class="card-body p-5">
+                 <div>
+                  <img src="https://media.giphy.com/media/1hAWUgCXuTMbl0yNMB/giphy.gif" className="p-3 m-2 rounded mx-auto float-right" id="gif" alt="history"/>
+                </div>
+                <h1 className="font-weight-light display-3 text-center m-3">Hello {this.state.kidname}!</h1>
+                <h1 class="font-weight-light display-5">First and most importantly: all our feelings are welcome here.</h1>
+                <h2 className="font-weight-lighter">Just below you will see the feelings you have submitted so far. Being consistent with your log can help you get to know your emotions and, by extension, yourself. Happy logging!</h2>
+                <div>
+                <ul className="list-group list-group-flush">
+                  {this.state.logs.map((log, index) => ( 
+                    <li key={index} className="list-group-item">
+                    <div>
+                      <div>
+                        I'm feeling <strong>{log.feeling + " "}</strong> because {" " + log.because}
+                        <button
+                        className="btn btn-outline-warning btn-sm m-2"
+                        onClick={() => this.deleteLog(log.id)}>
+                        Delete
+                        </button>
+                      </div>
+                    </div>
+                   </li>
+                  ))}
+              </ul> 
+        </div>
     </div>
   </div>
 </div>
-       
-    </div>
+</div>
         );  
     }
   }

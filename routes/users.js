@@ -64,14 +64,28 @@ router.post("/log", function(req, res, next) {
     .catch(err => res.status(500).send(err));
 });
 
-/* GET LOGS joined with PARENT  */
-router.get('/joined/:Parent_Id', function(req, res, next) {
-  db(`SELECT log.Id, log.because, log.feeling FROM log INNER JOIN parent on log.parent_Id=parent.Id WHERE parent_Id=${req.params.parent_Id};`)
+/* GET LOGS with PARENT ID  */
+router.get("/idlog/:parent_Id", function(req, res, next) {
+  db(`SELECT * FROM log WHERE parent_Id='${req.params.parent_Id}';`)
   .then(results => {
     res.send(results.data);
   })
   .catch(err => res.status(500).send(err));
 });
+
+
+// GET KIDNAME WITH PARENT ID
+router.get("/kidparent/:id", function(req, res, next) {
+  db(`SELECT kidname FROM parent WHERE id='${req.params.id}';`)
+    .then(results => {
+    console.log(results);
+      res.send(results.data);
+    })
+    .catch(err => res.status(500).send(err));
+});
+
+
+//select kidname from parent where id=13;
 
 // //INSERT a new log with parent id
 // router.post("/log", function(req, res, next) {
