@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-
 class Register extends Component {
     constructor(props) {
         super(props);
@@ -28,11 +27,6 @@ class Register extends Component {
             });
         };
 
-        getUserId = (id) => {
-          this.setState({
-            currentUserId: id,
-          });
-        };
 
           inputText = event => {
           const value = event.target.value;
@@ -84,7 +78,7 @@ class Register extends Component {
             })
             .then((data) => {
               console.log(data);
-              this.getUserId(data[0].id);
+              this.props.getUserId(data[0].id);
               this.setState({
                 login: "correct",
                 email: "",

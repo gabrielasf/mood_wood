@@ -42,7 +42,13 @@ class History extends Component {
     render() {
       return ( 
         <div> 
-        <img src="/images/scale.png" className="img-fluid mw-100 mx-auto d-block"/>
+
+
+<div class="container">
+  <div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+     
+    <img src="/images/scale.png" className="img-fluid mw-100 mx-auto d-block"/>
         
         <h1 className="font-weight-light display-3 text-left pl-5">Emotions Log</h1>
         <div>
@@ -63,6 +69,17 @@ class History extends Component {
     ))}
   </ul> 
   </div>
+
+     
+      <h1 class="font-weight-light">Fixed Full Page Background Image</h1>
+      <p class="lead">In this snippet, the background image is fixed to the body element. Content on the page will scroll, but the image will remain in a fixed position!</p>
+      <p class="lead">Scroll down...</p>
+      
+      <p class="lead mb-0">You've reached the end!</p>
+    </div>
+  </div>
+</div>
+       
     </div>
         );  
     }

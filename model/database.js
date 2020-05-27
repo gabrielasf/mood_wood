@@ -20,28 +20,12 @@ con.connect(function(err) {
 
   let sql = [
     "DROP TABLE if exists log; ",
-    "DROP TABLE if exists mood; ",
-    "DROP TABLE if exists kid; ",
     "DROP TABLE if exists parent; " ,
-    "CREATE TABLE mood (Id int primary key, feeling varchar(15) null);",
     "CREATE TABLE parent (id int auto_increment primary key, lastName varchar(25) null, firstName varchar(25) not null, email varchar(25) null, kidName varchar(25) not null, password varchar(20) not null, " +
       "constraint parent_Id_uindex unique (id), " +
       "constraint parent_email_uindex unique (email)); ",
-    "CREATE TABLE log (Id int auto_increment primary key, parent_Id int not null, mood_Id int null, because text null " + 
-      "constraint log_parent__fk foreign key (parent_Id) references parent (id) on update cascade on delete cascade, " +
-      "constraint log_mood__fk foreign key (mood_Id) references mood (Id) on update cascade on delete cascade);" +
-    "INSERT INTO mood (id, feeling) VALUES (1, 'angry');" +
-    "INSERT INTO mood (id, feeling) VALUES (2, 'annoyed');" +
-    "INSERT INTO mood (id, feeling) VALUES (3, 'confused');" +
-    "INSERT INTO mood (id, feeling) VALUES (4, 'good');" +
-    "INSERT INTO mood (id, feeling) VALUES (5, 'happy');" +
-    "INSERT INTO mood (id, feeling) VALUES (6, 'proud');" +
-    "INSERT INTO mood (id, feeling) VALUES (7, 'sad');" +
-    "INSERT INTO mood (id, feeling) VALUES (8, 'scared');" +
-    "INSERT INTO mood (id, feeling) VALUES (9, 'silly');" +
-    "INSERT INTO mood (id, feeling) VALUES (10, 'shy');" +
-    "INSERT INTO mood (id, feeling) VALUES (11, 'tired');" +
-    "INSERT INTO mood (id, feeling) VALUES (12, 'worried');" 
+    "CREATE TABLE log (Id int auto_increment primary key, parent_Id int not null, feeling varchar(25) null, because text null " + 
+      "constraint log_parent__fk foreign key (parent_Id) references parent (id) on update cascade on delete cascade, " 
   ];  
 
 

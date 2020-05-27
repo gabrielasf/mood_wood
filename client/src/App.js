@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Register from "./components/Register";
 import History from "./components/History";
 import Logs from "./components/Logs";
@@ -13,8 +13,21 @@ import {
   Link
 } from "react-router-dom";
 
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      currentUserId: null,
+    };
+  }
 
-export default function App() {
+  getUserId = (id) => {
+    this.setState({
+      currentUserId: id,
+    });
+  };
+
+  render() {
   return (
     <Router>
       <div>
@@ -43,13 +56,13 @@ export default function App() {
         
         <Switch>
           <Route path="/register" component={Register}>
-            <Register />
+            <Register getUserId={this.getUserId}/>
           </Route>
            <Route path="/logs/history" component={History}>
-            <History/>
+            <History currentUserId={this.state.currentUserId}/>
           </Route>
           <Route path="/logs" component={Logs}>
-            <Logs  />
+            <Logs currentUserId={this.state.currentUserId} />
           </Route>
           <Route path="/about" component={About}>
             <About  />
@@ -61,9 +74,5 @@ export default function App() {
       </div>
     </Router>
   );
-
 };
-
-
-
-    
+}

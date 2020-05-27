@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,20 +14,10 @@ class Logs extends Component {
         this.state = { 
           logs: [],
           feeling:"",
-          because: ""
+          because: "",
+          
            }
          }
-         componentDidMount() {
-          this.getLog();
-        }
-      
-        getLog = () => {
-          fetch(`/users/emergency`)
-            .then(response => response.json())
-            .then(response => {
-              this.setState({  logs : response });
-            });
-        };
       
         inputText = event => {
           const value = event.target.value;
@@ -39,14 +30,15 @@ class Logs extends Component {
         };
 
         newLog = () => {
-          fetch("/users/emergency", {
+          fetch("/users/log", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              feeling: this.state.feeling,
               because: this.state.because,
+              parent_Id: this.props.currentUserId,
+              feeling: this.state.feeling
               
             })
           })
@@ -55,16 +47,13 @@ class Logs extends Component {
               if (response.message === "Error") {
                 return console.error("error");
               }
-              this.getLog();
+              console.log(this.props.currentUserId);
             })
             .catch(error => {
               console.log(error);
             }); 
         };
       
-        
-
-
   render() {
     return (
 
@@ -72,7 +61,7 @@ class Logs extends Component {
         <div class="card border-0 shadow my-5">
           <div class="card-body p-5">
             <div className="container">
-                <h1 className="display-6 font-weight-lighter text-center">Considering the chart below, connect with your feelings!</h1>
+                <h1 className="display-6 font-weight-lighter text-center">Take a look at the chart below and connect with your feelings!</h1>
                 <div><img src="/images/howareyou.png" className="mx-auto d-block"/></div>
                 <img src="/images/angry.png" className="p-1 m-1"/>
                 <img src="/images/annoyed.png" className="p-1 m-1"/>
@@ -86,8 +75,7 @@ class Logs extends Component {
                 <img src="/images/shy.png" className="p-1 m-1"/>
                 <img src="/images/tired.png" className="p-1 m-1"/>
                 <img src="/images/worried.png" className="p-1 m-1"/>
-              
-                
+                          
                 <div>
                 <div className="input-group mb-3">
                   <div className="input-group-prepend">
@@ -117,7 +105,7 @@ class Logs extends Component {
                   </div>
                 </div>
                 <div>
-                  <button type="button" className="btn btn-dark mt-2" onClick={e => this.newLog()} >Submit this Feeling</button>
+                  <button type="button" className="btn btn-dark mt-2" onClick={e => this.newLog()} >Log it!</button>
                 </div>
                 <br/>
                  <div>
