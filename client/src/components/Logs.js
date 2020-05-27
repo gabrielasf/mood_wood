@@ -105,12 +105,12 @@ class Logs extends Component {
                   </div>
                 </div>
                 <div>
-                  <button type="button" className="btn btn-dark mt-2" onClick={e => this.newLog()} >Log it!</button>
+                  <button type="button" className="btn btn-dark mt-2" onClick={e => this.newLog()} >Submit</button>
                 </div>
                 <br/>
                  <div>
                     <li className="btn float-left pl-0">
-                    <Link to="/logs/history" className="btn btn-outline-secondary text-left pl-2"> See all your logs</Link>
+                    <Link to="/logs/history" className="btn btn-info text-left pl-2"> See all your logs</Link>
                     </li>
                 </div>
             </div>

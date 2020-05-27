@@ -93,26 +93,8 @@ class Register extends Component {
             });
         };
 
-      
-        // deleteUser = id => {
-        //   fetch(`/users/parent/${id}`, {
-        //     method: "DELETE"
-        //   })
-        //     .then(res => res.json())
-        //     .then(response => {
-        //       if (response.message === "Error") {
-        //         return console.error("error");
-        //       }
-        //       this.getLog();
-        //     })
-        //     .catch(error => {
-        //       console.log(error);
-        //     });
-        // };
-        
-
-
-render(){
+    
+    render(){
     return (
     <div className="container" id="inputgr">
     <div className="container login-container">
