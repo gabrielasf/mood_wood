@@ -8,12 +8,17 @@ class History extends Component {
         this.state = {
         marked: false,
         logs: [],
-        kidName: null
+        kidName: []
         }    
     }
 
          componentDidMount() {
           this.getLog();
+          this.getKid();
+          //this.getOneParent();
+          //this.getNameKid();
+          //this.getParentKid();
+          
         }
         
         getLog = () => {
@@ -24,15 +29,56 @@ class History extends Component {
             });
         };
 
+
+        // getParentKid = () => {
+        //   fetch(`/kidparent/${this.props.currentUserId}`)
+        //     .then(response => response.json())
+        //     .then(response => {
+        //       this.setState({  parents : response });
+        //     });
+        // }
+
+
+
         getKid = () => {
           fetch(`/users/kidparent/${this.props.currentUserId}`)
-            .then(response => response.json())
-            .then(response => {
+          .then(response => response.json()) 
+          .then(response => {
                this.setState({  kidName : response });
-            });
+              });
         };
 
+        // getOneParent = () => {
+        //   fetch(`/users/oneparent/${this.props.currentUserId}`)
+        //   .then(response => response.json()) 
+        //   .then(response => {
+        //        this.setState({  kidName : response });
+        //     }); 
+        // };
 
+        // getNameKid = (name) => {
+        //   this.setState({
+        //     currentKidName: name,
+        //   });
+        // };
+
+        // whatName = () => {
+        //   fetch(`/users/oneparent/${this.props.currentUserId}`)
+        //     .then((response) => {
+        //       console.log(response);
+        //       return response.json();
+        //     })
+        //     .then((data) => {
+        //       console.log(data);
+        //       this.props.getNameKid(data[0].kidName);
+        //     })
+        //     .catch((error) => {
+        //       console.log(error);
+             
+        //     });
+        // };
+
+      
         deleteLog = i => {
             fetch(`/users/log/${i}`, {
               method: "DELETE"
@@ -60,7 +106,11 @@ class History extends Component {
                  <div>
                   <img src="https://media.giphy.com/media/1hAWUgCXuTMbl0yNMB/giphy.gif" className="p-3 m-2 rounded mx-auto float-right" id="gif" alt="history"/>
                 </div>
-                <h1 className="font-weight-light display-3 text-center m-3">Hello {this.state.kidName}!</h1>
+                
+                {(this.state.kidName).map((item, i) => {
+                 return <h1 className="font-weight-light display-3 text-center m-3" key={i}> Hello {item.kidName}!</h1>
+                })}
+              
                 <h1 class="font-weight-light display-5">First and most importantly: all our feelings are welcome here.</h1>
                 <h2 className="font-weight-lighter">Just below you will see the feelings you have submitted so far. Being consistent with your log can help you get to know your emotions and, by extension, yourself. Happy logging!</h2>
                 <div>
@@ -69,17 +119,32 @@ class History extends Component {
                     <li key={index} className="list-group-item">
                     <div>
                       <div>
-                        I'm feeling <strong>{log.feeling + " "}</strong> because {" " + log.because}
-                        <button
+                      <button
                         className="btn btn-outline-warning btn-sm m-2"
                         onClick={() => this.deleteLog(log.Id)}>
-                        Delete
+                        X
                         </button>
+                        I'm feeling <strong>{log.feeling + " "}</strong> because {" " + log.because}   
                       </div>
                     </div>
                    </li>
                   ))}
               </ul> 
+
+              {/* <ul className="list-group list-group-flush">
+                  {this.state.parents.map((parent, index) => ( 
+                    <li key={index} className="list-group-item">
+                    <div>
+                      <div>
+                         <strong>{parent.kidName}</strong> 
+                       
+                      </div>
+                    </div>
+                   </li>
+                  ))}
+              </ul>  */}
+
+
         </div>
     </div>
   </div>
@@ -92,3 +157,10 @@ class History extends Component {
   
   export default History;
   
+  //{JSON.stringify(this.state.kidName)}
+
+//   <div>
+//   {(this.state.kidName).map((item, i) => {
+//      return <h1 key={i}>{item.kidName}</h1>
+//   })}
+// </div>

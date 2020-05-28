@@ -58,7 +58,7 @@ class Register extends Component {
             (this.setState({
               register: "correct",
               }))
-            return response.json()  //we only get here if there is no error
+            return response.json()
           })
             .catch(error => {
               console.log(error);

@@ -23,6 +23,19 @@ router.get('/parent', function(req, res, next) {
   
 });
 
+// /* GET PARENT WITH ID */
+router.get('/oneparent/:Id', function(req, res, next) {
+  db(`SELECT * FROM parent WHERE Id='${req.params.Id}';`)
+  .then(results => {
+    res.send(results.data);
+  })
+  .catch(err => res.status(500).send(err));
+  
+});
+
+
+
+
 // DELETE PARENT 
 router.delete("/parent/:email", function(req, res, next) {
   db(`DELETE FROM parent WHERE email='${req.params.email}';`)
@@ -65,14 +78,23 @@ router.get("/idlog/:parent_Id", function(req, res, next) {
 
 
 // GET KIDNAME WITH PARENT ID
-router.get("/kidparent/:id", function(req, res, next) {
-  db(`SELECT kidName FROM parent WHERE id='${req.params.id}';`)
+router.get("/kidparent/:Id", function(req, res, next) {
+  db(`SELECT kidName FROM parent WHERE Id='${req.params.Id}';`)
     .then(results => {
-    console.log(results);
       res.send(results.data);
     })
     .catch(err => res.status(500).send(err));
 });
+
+// // GET KIDNAME WITH PARENT ID ALL DATA
+// router.get("/kidparent/:Id", function(req, res, next) {
+//   db(`SELECT * FROM parent WHERE Id='${req.params.Id}';`)
+//     .then(results => {
+//       res.send(results.data);
+//     })
+//     .catch(err => res.status(500).send(err));
+// });
+
 
 // DELETE a log from the DB -- 
 router.delete("/log/:id", function(req, res, next) {
