@@ -1,7 +1,7 @@
 
 # Mood Wood
 
-This app was thought :thought_balloon: for kids to be a tool to develop emotional awareness and literacy skills. 
+This app was thought :thought_balloon: for kids as a tool to develop emotional awareness and literacy skills. 
 
 ## Setup :computer:
 
